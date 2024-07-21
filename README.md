@@ -13,3 +13,6 @@
 - [ ] Gerenciar perguntas postadas
 
 ## Andamento do projeto [ Recente / Antigo]
+
+Construção da área de questões
+Construção do header
