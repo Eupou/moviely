@@ -5,7 +5,7 @@ import SearchBar from "./SearchBar"
 
 export default function Header() {
   return (
-    <header className="flex h-[8vh] sm:h-[10vh] items-center justify-around border-b border-slate-100">
+    <header className="bg-white flex h-[8vh] sm:h-[10vh] items-center justify-around border-b-2 border-slate-100 sticky top-0 z-50">
       <Link
         href="/"
         className="-rotate-6 text-xs sm:text-base px-1 border-transparent italic text-white bg-black font-black"
