@@ -14,5 +14,7 @@
 
 ## Andamento do projeto [ Recente / Antigo]
 
+construção da área de status
+Construção da área de filtros
 Construção da área de questões
 Construção do header
