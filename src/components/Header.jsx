@@ -3,7 +3,7 @@ import { faUser, faBell } from "@fortawesome/free-solid-svg-icons"
 import Link from "next/link"
 import SearchBar from "./SearchBar"
 
-export default function Header() {
+export default function Header({ handleClick }) {
   return (
     <header className="bg-white flex h-[8vh] sm:h-[10vh] items-center justify-around border-b-2 border-slate-100 sticky top-0 z-50">
       <Link
@@ -15,7 +15,9 @@ export default function Header() {
       <SearchBar />
       <menu className="flex items-center">
         <li className="hidden sm:flex items-center justify-center hover:bg-slate-100  p-2 rounded-full transition">
-          <button className=" text-sm font-bold">PERGUNTAR</button>
+          <button className=" text-sm font-bold" onClick={handleClick}>
+            PERGUNTAR
+          </button>
         </li>
         <li className="hidden md:flex items-center justify-center hover:bg-slate-100 ml-3 p-2 rounded-full transition">
           <button>
