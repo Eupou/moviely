@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons"
 import { twMerge } from "tailwind-merge"
 
-export default function Select({ children, className }) {
+export default function Select({ children, className, handleChange }) {
   return (
     <div
       className={twMerge(
@@ -18,6 +18,7 @@ export default function Select({ children, className }) {
         className="p-2 focus:outline-none bg-transparent rounded-full w-full appearance-none absolute "
         name=""
         id=""
+        onChange={handleChange}
       >
         {children}
       </select>

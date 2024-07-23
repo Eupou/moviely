@@ -9,15 +9,20 @@ import {
 } from "@fortawesome/free-solid-svg-icons"
 import { useState } from "react"
 
-export default function Filters() {
+export default function Filters({ filterByGender }) {
   const [activeLi, setActiveLi] = useState(0)
   const movieGender = [
-    { text: "Todos os gêneros", icon: faDice },
-    { text: "Terror", icon: faGhost },
-    { text: "Comédia", icon: faFaceLaughSquint },
-    { text: "Romance", icon: faHeart },
-    { text: "Sci-fi", icon: faFlask },
+    { text: "Todos os gêneros", gender: "todos", icon: faDice },
+    { text: "Terror", gender: "Terror", icon: faGhost },
+    { text: "Comédia", gender: "Comédia", icon: faFaceLaughSquint },
+    { text: "Romance", gender: "Romance", icon: faHeart },
+    { text: "Sci-fi", gender: "Sci-fi", icon: faFlask },
   ]
+
+  function handleClick(id, movieGender) {
+    setActiveLi(id)
+    filterByGender(movieGender)
+  }
 
   return (
     <aside className="hidden lg:block w-[20%] mt-5">
@@ -30,7 +35,7 @@ export default function Filters() {
               <FilterLi
                 key={id}
                 isActive={activeLi == id}
-                handleActiveLi={() => setActiveLi(id)}
+                handleActiveLi={() => handleClick(id, gender.gender)}
                 icon={gender.icon}
               >
                 {gender.text}

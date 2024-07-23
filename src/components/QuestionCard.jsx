@@ -2,9 +2,12 @@ import Link from "next/link"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faUser } from "@fortawesome/free-solid-svg-icons"
 
-export default function QuestionCard() {
-  const text =
-    "As taxas de mortalidade da população mundial se motivam elevadas e aexpectativa de vida baixa durante a maior parte da história de acordo com o que"
+export default function QuestionCard({
+  text,
+  isFirstQuestion,
+  movieGender,
+  score,
+}) {
   const formatedText = text.slice(0, 147).concat("...")
 
   return (
@@ -19,22 +22,27 @@ export default function QuestionCard() {
               />
             </button>
             <div className="ml-2 flex flex-col text-xs">
-              <p className=" bg-purple-700 p-1  rounded-lg text-white font-medium">
-                Primeira Pergunta
-              </p>
-              <p className="pt-1 text-sm">Terror</p>
+              {isFirstQuestion && (
+                <p className=" bg-purple-700 p-1  rounded-lg text-white font-medium">
+                  Primeira Pergunta
+                </p>
+              )}
+              <p className="pt-1 text-sm">{movieGender}</p>
             </div>
           </div>
           <div className="rounded-full flex items-center h-fit px-2 bg-slate-100">
             <div className="bg-black text-white -rotate-6 font-bold text-xs  leading-none h-fit py-[1px] px-[2px]">
               M
             </div>
-            <p className="ml-1">+5</p>
+            <p className="ml-1">+{score}</p>
           </div>
         </div>
 
         <Link href="">
-          <p className="hover:underline">{formatedText}</p>
+          <p
+            className="hover:underline"
+            dangerouslySetInnerHTML={{ __html: formatedText }}
+          ></p>
         </Link>
 
         <div className="flex">

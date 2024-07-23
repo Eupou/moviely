@@ -9,18 +9,26 @@ import { useRef, useState } from "react"
 
 export default function Home() {
   const buttonRef = useRef(null)
+  const [questionGender, setQuestionGender] = useState("todos")
 
   function toggleQuestion() {
     document.body.style.overflow = "hidden"
     buttonRef.current.open()
   }
 
+  function filterQuestions(gender) {
+    setQuestionGender(gender)
+  }
+
   return (
     <>
       <Header handleClick={toggleQuestion} />
       <main className="lg:flex bg-slate-200 md:bg-white">
-        <Filters />
-        <Questions />
+        <Filters filterByGender={filterQuestions} />
+        <Questions
+          questionGender={questionGender}
+          setQuestionGender={setQuestionGender}
+        />
         <Stats />
       </main>
       <AddQuestion handleClick={toggleQuestion} />
