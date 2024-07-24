@@ -2,7 +2,7 @@
 
 > Clone do app Brainly, mas ao invés de perguntar sobre questões pergunte sobre filmes.
 
-<i>Tecnologias do projeto: React.js, Next.js, Tailwind, Tailwind merge, react quill</i>
+<i>Tecnologias do projeto: React.js, Next.js, Tailwind, Tailwind merge, react quill, DOMPurify</i>
 
 ## Features para o mvp
 
@@ -15,6 +15,9 @@
 ## Andamento do projeto [ Recente / Antigo]
 
 <ul>
+  <li>
+    Fazer nova pergunta
+  </li>
   <li>
     Funcionalidade do filtro
   </li>
