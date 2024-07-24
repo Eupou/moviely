@@ -6,7 +6,7 @@
 
 ## Features para o mvp
 
-- [ ] Postar uma pergunta
+- [x] Postar uma pergunta
 - [ ] Responder uma pergunta
 - [ ] Pesquisar por uma pergunta
 - [x] Filtrar perguntas por tópicos
@@ -15,6 +15,9 @@
 ## Andamento do projeto [ Recente / Antigo]
 
 <ul>
+ <li>
+    Mostrar nova pergunta na tela
+  </li>
   <li>
     Fazer nova pergunta
   </li>

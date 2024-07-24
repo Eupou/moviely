@@ -1,17 +1,36 @@
 import Link from "next/link"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faUser } from "@fortawesome/free-solid-svg-icons"
+import { twMerge } from "tailwind-merge"
+import DOMPurify from "dompurify"
 
 export default function QuestionCard({
   text,
   isFirstQuestion,
   movieGender,
   score,
+  animation,
 }) {
-  const formatedText = text.slice(0, 147).concat("...")
+  let formatedText = text
+
+  if (text) {
+    const tempElement = document.createElement("div")
+    tempElement.innerHTML = DOMPurify.sanitize(text)
+
+    if (tempElement.textContent.length > 146) {
+      formatedText = tempElement.textContent.slice(0, 147).concat("...")
+    } else {
+      formatedText = tempElement.innerHTML
+    }
+  }
 
   return (
-    <div className="mt-2 md:mt-0 md:border-b-2 md:border-b-slate-200 bg-white md:bg-transparent">
+    <div
+      className={twMerge(
+        "mt-2 md:mt-0 md:border-b-2 md:border-b-slate-200 bg-white md:bg-transparent",
+        animation
+      )}
+    >
       <div className="w-[90%] m-auto py-5">
         <div className="flex justify-between">
           <div className="flex items-center">

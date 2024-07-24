@@ -15,7 +15,7 @@ const stats = {
   QUESTION: "",
 }
 
-export default forwardRef(function QuestionModal({ props }, ref) {
+export default forwardRef(function QuestionModal({ setNewQuestion }, ref) {
   const [questionStats, setQuestionStats] = useState(stats)
   const [isGenderEmpty, setIsGenderEmpty] = useState("hidden")
   const [isQuestionEmpty, setIsQuestionEmpty] = useState("hidden")
@@ -73,6 +73,7 @@ export default forwardRef(function QuestionModal({ props }, ref) {
       answerCount: 0,
     })
 
+    setNewQuestion(questions[questions.length - 1])
     closeModal()
     console.log(questions) // Remove after showing the new question on the screen
   }

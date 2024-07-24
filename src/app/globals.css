@@ -5,3 +5,22 @@
 body {
   font-family: Helvetica, sans-serif;
 }
+
+.borderAnimation {
+  outline-style: solid;
+  outline-width: 2px;
+  outline-color: transparent;
+  animation: fadeOut 2s ease-in-out;
+}
+
+@keyframes fadeOut {
+  0% {
+    outline-color: transparent;
+  }
+  50% {
+    outline-color: #60a5fa;
+  }
+  100% {
+    outline-color: transparent;
+  }
+}

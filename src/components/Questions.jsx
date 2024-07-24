@@ -4,15 +4,26 @@ import Select from "./Select"
 import questions from "../questions.json"
 import { useState } from "react"
 
-export default function Questions({ questionGender, setQuestionGender }) {
+export default function Questions({
+  questionGender,
+  setQuestionGender,
+  newQuestion,
+  setNewQuestion,
+}) {
   const [questionStats, setQuestionStats] = useState("all-questions")
 
   function selectChange(e) {
     setQuestionGender(e.target.value)
+    if (newQuestion != "") {
+      setNewQuestion("")
+    }
   }
 
   function answerFilter(e) {
     setQuestionStats(e.target.value)
+    if (newQuestion != "") {
+      setNewQuestion("")
+    }
   }
 
   const questionByGender = questions.filter(
@@ -50,6 +61,16 @@ export default function Questions({ questionGender, setQuestionGender }) {
             </div>
           </div>
         </div>
+        {newQuestion && (
+          <QuestionCard
+            animation="borderAnimation"
+            key={newQuestion.id}
+            isFirstQuestion={newQuestion.isFirstQuestion}
+            movieGender={newQuestion.gender}
+            text={newQuestion.question}
+            score={newQuestion.score}
+          />
+        )}
         {selectedQuestions &&
           selectedQuestions.map((question) => (
             <QuestionCard
