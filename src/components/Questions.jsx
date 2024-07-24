@@ -1,8 +1,9 @@
 "use client"
-import QuestionCard from "./QuestionCard"
+import dynamic from "next/dynamic"
 import Select from "./Select"
 import questions from "../questions.json"
 import { useState } from "react"
+const QuestionCard = dynamic(() => import("./QuestionCard"), { ssr: false })
 
 export default function Questions({
   questionGender,
