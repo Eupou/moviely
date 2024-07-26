@@ -1,4 +1,6 @@
 import "./globals.css"
+import Header from "@/components/Header"
+import { ModalContextProvider } from "@/context/ModalContext"
 
 export const metadata = {
   title: "Moviely",
@@ -8,7 +10,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="pt-BR">
-      <body>{children}</body>
+      <body>
+        <ModalContextProvider>
+          <Header />
+          {children}
+        </ModalContextProvider>
+      </body>
     </html>
   )
 }
