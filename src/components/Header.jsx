@@ -1,11 +1,15 @@
+"use client"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faUser, faBell } from "@fortawesome/free-solid-svg-icons"
 import Link from "next/link"
 import SearchBar from "./SearchBar"
+import { useContext } from "react"
+import { ModalContext } from "@/context/ModalContext"
 
-export default function Header({ handleClick }) {
+export default function Header() {
+  const { setIsModalOpen } = useContext(ModalContext)
   return (
-    <header className="bg-white flex h-[8vh] sm:h-[10vh] items-center justify-around border-b-2 border-slate-100 sticky top-0 z-50">
+    <header className="bg-white has-[input:focus]:shadow-full flex h-[8vh] sm:h-[10vh] items-center justify-around border-b-2 border-slate-100 sticky top-0 z-50">
       <Link
         href="/"
         className="-rotate-6 text-xs sm:text-base px-1 border-transparent italic text-white bg-black font-black"
@@ -15,7 +19,10 @@ export default function Header({ handleClick }) {
       <SearchBar />
       <menu className="flex items-center">
         <li className="hidden sm:flex items-center justify-center hover:bg-slate-100  p-2 rounded-full transition">
-          <button className=" text-sm font-bold" onClick={handleClick}>
+          <button
+            className=" text-sm font-bold"
+            onClick={() => setIsModalOpen(true)}
+          >
             PERGUNTAR
           </button>
         </li>

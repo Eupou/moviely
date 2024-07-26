@@ -1,5 +1,5 @@
 "use client"
-import { useRef, forwardRef, useImperativeHandle, useState } from "react"
+import { useRef, useState, useContext } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faXmark } from "@fortawesome/free-solid-svg-icons"
 import dynamic from "next/dynamic"
@@ -8,18 +8,20 @@ import DOMPurify from "dompurify"
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false })
 import "react-quill/dist/quill.snow.css"
 import questions from "../questions.json"
+import { ModalContext } from "@/context/ModalContext"
 
-const stats = {
+const INITIAL_STATS = {
   SCORE: 5,
   GENDER: undefined,
   QUESTION: "",
 }
 
-export default forwardRef(function QuestionModal({ setNewQuestion }, ref) {
-  const [questionStats, setQuestionStats] = useState(stats)
+export default function QuestionModal({ setNewQuestion }) {
+  const [questionStats, setQuestionStats] = useState(INITIAL_STATS)
   const [isGenderEmpty, setIsGenderEmpty] = useState("hidden")
   const [isQuestionEmpty, setIsQuestionEmpty] = useState("hidden")
   const dialogRef = useRef(null)
+  const { isModalOpen, setIsModalOpen } = useContext(ModalContext)
 
   const isEmpty = "text-xs font-bold text-red-600"
   const modules = {
@@ -73,7 +75,9 @@ export default forwardRef(function QuestionModal({ setNewQuestion }, ref) {
       answerCount: 0,
     })
 
-    setNewQuestion(questions[questions.length - 1])
+    if (setNewQuestion) {
+      setNewQuestion(questions[questions.length - 1])
+    }
     closeModal()
   }
 
@@ -98,22 +102,19 @@ export default forwardRef(function QuestionModal({ setNewQuestion }, ref) {
 
     if (emptyField == false) {
       postQuestion()
-      setQuestionStats(stats)
+      setQuestionStats(INITIAL_STATS)
     }
   }
 
   function closeModal() {
+    setIsModalOpen(false)
     dialogRef.current.close()
     document.body.style.overflowY = "scroll"
   }
 
-  useImperativeHandle(ref, () => {
-    return {
-      open() {
-        dialogRef.current.showModal()
-      },
-    }
-  })
+  if (isModalOpen) {
+    dialogRef.current.showModal()
+  }
 
   return (
     <dialog
@@ -174,4 +175,4 @@ export default forwardRef(function QuestionModal({ setNewQuestion }, ref) {
       </form>
     </dialog>
   )
-})
+}
