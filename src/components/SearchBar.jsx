@@ -29,7 +29,7 @@ export default function SearchBar() {
         ref={inputRef}
         onKeyDown={(e) => handleKeyDown(e)}
         className="bg-slate-100 w-full pl-2 focus:outline-none group-hover:bg-slate-200 transition"
-        type="text"
+        type="search"
         placeholder="Pesquisar..."
       />
       <div className=" flex justify-center items-center h-[25px] w-[30px]">
