@@ -8,8 +8,9 @@ export default function SearchBar() {
   const inputRef = useRef(null)
   const router = useRouter()
 
-  function handleKeyDown(key) {
-    if (key.code == "Enter") {
+  function handleKeyDown(event) {
+    if (event.code == "Enter" || event.key == "Enter" || event.keyCode === 13) {
+      event.preventDefault()
       makeQuestion()
       inputRef.current.blur()
     }
@@ -27,7 +28,7 @@ export default function SearchBar() {
     <div className="flex group items-center bg-slate-100 p-1 w-[58%] md:w-[55%] rounded-full hover:bg-slate-200 transition">
       <input
         ref={inputRef}
-        onKeyDown={(e) => handleKeyDown(e)}
+        onKeyDown={handleKeyDown}
         className="bg-slate-100 w-full pl-2 focus:outline-none group-hover:bg-slate-200 transition"
         type="search"
         placeholder="Pesquisar..."
