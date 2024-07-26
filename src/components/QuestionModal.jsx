@@ -75,12 +75,10 @@ export default forwardRef(function QuestionModal({ setNewQuestion }, ref) {
 
     setNewQuestion(questions[questions.length - 1])
     closeModal()
-    console.log(questions) // Remove after showing the new question on the screen
   }
 
   function checkInputs(e) {
     e.preventDefault()
-    addQuestion()
     let emptyField = false
 
     if (questionStats.GENDER == undefined) {
@@ -100,6 +98,7 @@ export default forwardRef(function QuestionModal({ setNewQuestion }, ref) {
 
     if (emptyField == false) {
       postQuestion()
+      setQuestionStats(stats)
     }
   }
 
