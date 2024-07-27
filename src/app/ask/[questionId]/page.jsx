@@ -11,7 +11,7 @@ export default function contect({ params }) {
   const query = decodeURIComponent(params.questionId)
 
   function filterAndSortResults(query) {
-    const queryWords = query.split(" ")
+    const queryWords = query.toLowerCase().split(" ")
     return questions
       .map((item) => {
         const questionWords = item.question.toLowerCase().split(" ")
