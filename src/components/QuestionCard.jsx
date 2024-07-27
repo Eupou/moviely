@@ -18,7 +18,7 @@ export default function QuestionCard({
     tempElement.innerHTML = DOMPurify.sanitize(text)
 
     if (tempElement.textContent.length > 146) {
-      formatedText = tempElement.textContent.slice(0, 147).concat("...")
+      formatedText = tempElement.innerHTML.slice(0, 147).concat("...")
     } else {
       formatedText = tempElement.innerHTML
     }

@@ -8,13 +8,16 @@
 
 - [x] Postar uma pergunta
 - [ ] Responder uma pergunta
-- [ ] Pesquisar por uma pergunta
+- [x] Pesquisar por uma pergunta
 - [x] Filtrar perguntas por tópicos
 - [ ] Gerenciar perguntas postadas
 
 ## Andamento do projeto [ Recente / Antigo]
 
 <ul>
+ <li>
+    Pesquisar por uma pergunta
+ </li>
  <li>
     Mostrar nova pergunta na tela
   </li>
