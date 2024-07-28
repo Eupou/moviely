@@ -2,13 +2,11 @@
 import { useRef, useState, useContext } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faXmark } from "@fortawesome/free-solid-svg-icons"
-import dynamic from "next/dynamic"
 import Select from "./Select"
 import DOMPurify from "dompurify"
-const ReactQuill = dynamic(() => import("react-quill"), { ssr: false })
-import "react-quill/dist/quill.snow.css"
 import questions from "../questions.json"
 import { ModalContext } from "@/context/ModalContext"
+import TextEditor from "./TextEditor"
 
 const INITIAL_STATS = {
   SCORE: 5,
@@ -24,18 +22,6 @@ export default function QuestionModal({ setNewQuestion }) {
   const { isModalOpen, setIsModalOpen } = useContext(ModalContext)
 
   const isEmpty = "text-xs font-bold text-red-600"
-  const modules = {
-    toolbar: [
-      [{ header: [1, 2, 3, false] }],
-      ["bold", "italic"],
-      ["image"],
-      ["clean"],
-    ],
-  }
-
-  const formats = {
-    formats: ["header", "bold", "italic"],
-  }
 
   function addMovieGender(e) {
     setQuestionStats((prevStats) => {
@@ -132,14 +118,10 @@ export default function QuestionModal({ setNewQuestion }) {
           </div>
 
           <div className="h-[59vh] md:h-[50vh]">
-            <ReactQuill
-              className="h-[40vh] mt-1"
-              theme="snow"
-              placeholder="Escreva sua bela pergunta"
-              value={questionStats.QUESTION}
-              onChange={(text) => addQuestion(text)}
-              modules={modules}
-              formats={formats}
+            <TextEditor
+              placeholderText="Escreva sua bela pergunta"
+              handleTextChange={addQuestion}
+              editorText={questionStats.QUESTION}
             />
           </div>
           <div className={isQuestionEmpty}>
