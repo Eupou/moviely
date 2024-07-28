@@ -9,11 +9,12 @@ const INITIAL_STATS = {
   QUESTION: "",
 }
 
-export default function useQuestionModal({ setNewQuestion }) {
+export default function useQuestionModal() {
   const { isModalOpen, setIsModalOpen } = useContext(ModalContext)
   const [questionStats, setQuestionStats] = useState(INITIAL_STATS)
   const [isGenderEmpty, setIsGenderEmpty] = useState("hidden")
   const [isQuestionEmpty, setIsQuestionEmpty] = useState("hidden")
+  const [newQuestion, setNewQuestion] = useState()
   const ref = useRef(null)
   const isEmpty = "text-xs font-bold text-red-600"
 
@@ -55,9 +56,7 @@ export default function useQuestionModal({ setNewQuestion }) {
       answerCount: 0,
     })
 
-    if (setNewQuestion) {
-      setNewQuestion(questions[questions.length - 1])
-    }
+    setNewQuestion(questions[questions.length - 1])
     closeModal()
   }
 
@@ -100,6 +99,7 @@ export default function useQuestionModal({ setNewQuestion }) {
     isGenderEmpty,
     isQuestionEmpty,
     ref,
+    newQuestion,
     addMovieGender,
     addScore,
     addQuestion,

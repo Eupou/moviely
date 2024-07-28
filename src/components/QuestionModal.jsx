@@ -4,6 +4,7 @@ import { faXmark } from "@fortawesome/free-solid-svg-icons"
 import Select from "./Select"
 import TextEditor from "./TextEditor"
 import useQuestionModal from "@/hooks/useQuestionModal"
+import { useEffect } from "react"
 
 export default function QuestionModal({ setNewQuestion }) {
   const {
@@ -11,12 +12,19 @@ export default function QuestionModal({ setNewQuestion }) {
     questionStats,
     isQuestionEmpty,
     isGenderEmpty,
+    newQuestion,
     closeModal,
     addQuestion,
     addMovieGender,
     addScore,
     checkInputs,
-  } = useQuestionModal(setNewQuestion)
+  } = useQuestionModal()
+
+  useEffect(() => {
+    if (newQuestion) {
+      setNewQuestion(newQuestion)
+    }
+  }, [newQuestion, setNewQuestion])
 
   return (
     <dialog
