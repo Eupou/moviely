@@ -53,7 +53,7 @@ export default function useQuestionModal() {
       isFirstQuestion: false,
       question: questionStats.QUESTION,
       score: questionStats.SCORE,
-      answerCount: 0,
+      answers: [],
     })
 
     setNewQuestion(questions[questions.length - 1])

@@ -34,8 +34,8 @@ export default function Questions({
   const selectedQuestions = questionByGender.filter(
     (question) =>
       questionStats == "all-questions" ||
-      (question.answerCount == 0 && questionStats == "no-aswer") ||
-      (question.answerCount > 0 && questionStats == "answered")
+      (question.answers.length == 0 && questionStats == "no-aswer") ||
+      (question.answers.length > 0 && questionStats == "answered")
   )
 
   return (
@@ -70,6 +70,7 @@ export default function Questions({
             movieGender={newQuestion.gender}
             text={newQuestion.question}
             score={newQuestion.score}
+            path={`/question/${newQuestion.id}`}
           />
         )}
         {selectedQuestions &&
@@ -80,6 +81,7 @@ export default function Questions({
               movieGender={question.gender}
               text={question.question}
               score={question.score}
+              path={`/question/${question.id}`}
             />
           ))}
         <div className="bg-white md:bg-transparent text-center py-5 text-xs">
