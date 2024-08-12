@@ -25,7 +25,7 @@ export default function TextEditor({
 
   return (
     <ReactQuill
-      className={twMerge("h-[40vh] mt-1", className)}
+      className={twMerge("h-[50vh] pb-14 mt-1", className)}
       theme="snow"
       placeholder={placeholderText}
       value={editorText}

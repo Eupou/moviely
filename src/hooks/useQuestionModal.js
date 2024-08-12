@@ -50,6 +50,7 @@ export default function useQuestionModal() {
     questions.push({
       id: Math.random(),
       gender: questionStats.GENDER,
+      username: "zezinho da batata",
       isFirstQuestion: false,
       question: questionStats.QUESTION,
       score: questionStats.SCORE,

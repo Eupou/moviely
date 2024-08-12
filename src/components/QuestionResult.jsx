@@ -2,7 +2,7 @@
 import DOMPurify from "dompurify"
 import Link from "next/link"
 
-export default function QuestionResult({ question }) {
+export default function QuestionResult({ question, path }) {
   let cleanText
   if (question) {
     const tempElement = document.createElement("div")
@@ -15,7 +15,7 @@ export default function QuestionResult({ question }) {
       <div className="w-[90%] m-auto">
         <Link
           className="hover:underline"
-          href="/"
+          href={path}
           dangerouslySetInnerHTML={{ __html: cleanText }}
         ></Link>
       </div>

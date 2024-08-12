@@ -7,7 +7,7 @@ const QuestionResult = dynamic(() => import("@/components/QuestionResult"), {
   ssr: false,
 })
 
-export default function contect({ params }) {
+export default function Contect({ params }) {
   const query = decodeURIComponent(params.questionId)
 
   function filterAndSortResults(query) {
@@ -31,9 +31,10 @@ export default function contect({ params }) {
       <QuestionModal />
       <div className="flex justify-center">
         <QuestionResultContainer>
-          {sortedQuestions.map((question) => (
+          {sortedQuestions.map((question, id) => (
             <QuestionResult
-              key={question.id}
+              key={id}
+              path={`/question/${question.id}`}
               question={question.question}
               query={query}
             />

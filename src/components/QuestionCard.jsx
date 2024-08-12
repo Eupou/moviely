@@ -10,6 +10,7 @@ export default function QuestionCard({
   movieGender,
   score,
   animation,
+  path,
 }) {
   let formatedText = text
 
@@ -57,7 +58,7 @@ export default function QuestionCard({
           </div>
         </div>
 
-        <Link href="">
+        <Link href={path}>
           <p
             className="hover:underline"
             dangerouslySetInnerHTML={{ __html: formatedText }}

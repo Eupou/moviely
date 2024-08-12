@@ -2,16 +2,22 @@
   {
     "id": 0,
     "gender": "Terror",
+    "username": "usuarioFeliz",
     "isFirstQuestion": false,
     "question": "No filme \"Pânico\", dirigido por Wes Craven e conhecido por revitalizar o gênero de terror slasher nos anos 90, uma série de assassinatos brutais acontece na cidade fictícia de Woodsboro. Ao longo do filme, os personagens principais tentam descobrir a identidade do assassino mascarado. No clímax do filme, qual é a verdadeira identidade do assassino (ou assassinos) por trás da máscara do Ghostface, revelada durante a confrontação final?",
     "score": 5,
     "answers": [
-      "<h1>São dois assassinos</h1><p>Eles queriam recriar alguma coisa lá</p><p><br></p>"
+      {
+        "id": 0,
+        "username": "cara que sabe",
+        "answer": "<h1>São dois <strong>assassinos</strong></h1> <h2>recriar</h2> <h3>mais que text bonitão</h3>alguma coisa lá</p><p><br></p>"
+      }
     ]
   },
   {
     "id": 1,
     "gender": "Sci-fi",
+    "username": "usuarioCompleto",
     "isFirstQuestion": true,
     "question": "Em \"Matrix\", dirigido pelos irmãos Wachowski, o protagonista Neo, interpretado por Keanu Reeves, descobre que o mundo que conhece é uma simulação criada por máquinas inteligentes. Qual é o nome real de Neo antes de ele ser despertado para a realidade, e quem é o líder carismático dos rebeldes que o guia em sua jornada para desvendar os segredos da Matrix e lutar contra o controle das máquinas?",
     "score": 5,
@@ -20,6 +26,7 @@
   {
     "id": 2,
     "gender": "Terror",
+    "username": "usuarioMal",
     "isFirstQuestion": false,
     "question": "Em \"A Bruxa de Blair\", quais são os nomes dos três estudantes de cinema que se perdem na floresta enquanto filmam um documentário sobre a lenda da bruxa?",
     "score": 10,
@@ -28,6 +35,7 @@
   {
     "id": 3,
     "gender": "Romance",
+    "username": "usuarioBom",
     "isFirstQuestion": false,
     "question": "No filme \"Orgulho e Preconceito\", baseado no clássico romance de Jane Austen e dirigido por Joe Wright, a história gira em torno da complicada relação entre Elizabeth Bennet e Mr. Darcy. Como a percepção inicial de Elizabeth sobre Darcy muda ao longo do filme, e quais eventos principais levam a essa mudança de sentimentos?",
     "score": 20,
@@ -36,6 +44,7 @@
   {
     "id": 4,
     "gender": "Romance",
+    "username": "usuario",
     "isFirstQuestion": false,
     "question": "Em \"Diário de uma Paixão\", dirigido por Nick Cassavetes e baseado no romance de Nicholas Sparks, a história de amor de Allie Hamilton e Noah Calhoun é contada em duas linhas do tempo. Como Allie e Noah se conhecem e se apaixonam na juventude, e como suas vidas se entrelaçam novamente na velhice, apesar dos desafios que enfrentam ao longo dos anos?",
     "score": 10,
@@ -44,6 +53,7 @@
   {
     "id": 5,
     "gender": "Comédia",
+    "username": "usuarioInfeliz",
     "isFirstQuestion": true,
     "question": "No filme de comédia \"Ace Ventura: Um Detetive Diferente\", estrelado por Jim Carrey, o personagem principal Ace Ventura é um excêntrico detetive especializado em encontrar animais desaparecidos. Qual é o nome do golfinho mascote do time de futebol americano que Ace é contratado para encontrar, e quais são algumas das peculiaridades e métodos inusitados que ele usa durante sua investigação?",
     "score": 15,
@@ -52,6 +62,7 @@
   {
     "id": 6,
     "gender": "Terror",
+    "username": "usuarioBolado",
     "isFirstQuestion": false,
     "question": "No filme \"O Iluminado\", qual é o nome do hotel onde Jack Torrance e sua família ficam isolados durante o inverno?",
     "score": 10,
@@ -60,6 +71,7 @@
   {
     "id": 7,
     "gender": "Comédia",
+    "username": "usuarioTriste",
     "isFirstQuestion": false,
     "question": "Em \"As Branquelas\", uma comédia dirigida por Keenen Ivory Wayans, dois agentes do FBI interpretados por Shawn e Marlon Wayans se disfarçam como duas socialites brancas para proteger suas vidas e investigar uma série de sequestros. Quais são os nomes das personagens originais que eles se disfarçam, e quais são algumas das situações cômicas e embaraçosas em que eles se envolvem enquanto mantêm suas identidades falsas?",
     "score": 100,

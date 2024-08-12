@@ -7,7 +7,7 @@
 ## Features para o mvp
 
 - [x] Postar uma pergunta
-- [ ] Responder uma pergunta
+- [x] Responder uma pergunta
 - [x] Pesquisar por uma pergunta
 - [x] Filtrar perguntas por tópicos
 - [ ] Gerenciar perguntas postadas
@@ -15,6 +15,9 @@
 ## Andamento do projeto [ Recente / Antigo]
 
 <ul>
+ <li>
+    Responder uma pergunta
+ </li>
  <li>
     Pesquisar por uma pergunta
  </li>
