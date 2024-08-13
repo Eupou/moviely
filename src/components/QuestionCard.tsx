@@ -4,6 +4,15 @@ import { faUser } from "@fortawesome/free-solid-svg-icons"
 import { twMerge } from "tailwind-merge"
 import DOMPurify from "dompurify"
 
+type QuestionCardProps = {
+  text: string
+  isFirstQuestion: boolean
+  movieGender: string
+  score: number
+  animation?: string
+  path: string
+}
+
 export default function QuestionCard({
   text,
   isFirstQuestion,
@@ -11,12 +20,14 @@ export default function QuestionCard({
   score,
   animation,
   path,
-}) {
+}: QuestionCardProps) {
   let formatedText = text
 
   if (text) {
     const tempElement = document.createElement("div")
     tempElement.innerHTML = DOMPurify.sanitize(text)
+
+    if (tempElement.textContent == null) return
 
     if (tempElement.textContent.length > 146) {
       formatedText = tempElement.innerHTML.slice(0, 147).concat("...")

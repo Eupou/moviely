@@ -1,6 +1,19 @@
+import { IconDefinition } from "@fortawesome/fontawesome-svg-core"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
-export default function FilterLi({ isActive, handleActiveLi, icon, children }) {
+type FilterLiProps = {
+  isActive: boolean
+  handleActiveLi: () => void
+  icon: IconDefinition
+  children: React.ReactNode
+}
+
+export default function FilterLi({
+  isActive,
+  handleActiveLi,
+  icon,
+  children,
+}: FilterLiProps) {
   const selected = isActive ? "bg-slate-200" : null
   return (
     <li

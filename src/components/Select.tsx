@@ -1,8 +1,18 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons"
-import { twMerge } from "tailwind-merge"
+import { ClassNameValue, twMerge } from "tailwind-merge"
 
-export default function Select({ children, className, handleChange }) {
+type SelectProps = {
+  className?: ClassNameValue
+  handleChange: (e: React.ChangeEvent<HTMLSelectElement>) => void
+  children: React.ReactNode
+}
+
+export default function Select({
+  children,
+  className,
+  handleChange,
+}: SelectProps) {
   return (
     <div
       className={twMerge(

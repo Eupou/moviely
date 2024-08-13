@@ -5,21 +5,21 @@ import { useRouter } from "next/navigation"
 import { useRef } from "react"
 
 export default function SearchBar() {
-  const inputRef = useRef(null)
+  const inputRef = useRef<HTMLInputElement>(null)
   const router = useRouter()
 
-  function handleKeyDown(event) {
+  function handleKeyDown(event: React.KeyboardEvent) {
     if (event.code == "Enter" || event.key == "Enter" || event.keyCode === 13) {
       event.preventDefault()
       makeQuestion()
-      inputRef.current.blur()
+      inputRef.current!.blur()
     }
   }
 
   function makeQuestion() {
-    const inputValue = inputRef.current.value.trim()
+    const inputValue = inputRef.current!.value.trim()
     if (inputValue != "") {
-      const message = encodeURIComponent(inputRef.current.value)
+      const message = encodeURIComponent(inputRef.current!.value)
       router.push(`/ask/${message}`)
     }
   }

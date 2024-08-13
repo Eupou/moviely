@@ -4,7 +4,7 @@ import { useState } from "react"
 
 export const ModalContext = createContext({
   isModalOpen: false,
-  setIsModalOpen: () => {},
+  setIsModalOpen: (p0) => {},
 })
 
 export function ModalContextProvider({ children }) {

@@ -9,19 +9,25 @@ import dynamic from "next/dynamic"
 import QuestionModal from "@/components/QuestionModal"
 const Answer = dynamic(() => import("@/components/Answer"), { ssr: false })
 
-export default function Question({ params }) {
+type QuestionProps = {
+  params: {
+    questionId: number
+  }
+}
+
+export default function Question({ params }: QuestionProps) {
   const [isAswering, setIsAnswering] = useState(false)
-  const [editorText, setEditorText] = useState()
+  const [editorText, setEditorText] = useState("")
   const questionObj = questions
     .filter((question) => question.id == params.questionId)
-    .pop()
+    .pop()!
 
   const questionText = questionObj.question
   const score = questionObj.score
   const answers = questionObj.answers
   const username = questionObj.username
 
-  function handleSubmit(e) {
+  function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     const temp = document.createElement("div")
     temp.innerHTML = editorText

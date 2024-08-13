@@ -6,24 +6,29 @@ import Stats from "@/components/Stats"
 import QuestionModal from "@/components/QuestionModal"
 import { useState } from "react"
 
+type NewQuestion = {
+  id: number
+  isFirstQuestion: boolean
+  gender: string
+  question: string
+  score: number
+}
+
 export default function Home() {
   const [questionGender, setQuestionGender] = useState("todos")
-  const [newQuestion, setNewQuestion] = useState()
+  const [newQuestion, setNewQuestion] = useState<NewQuestion | null>(null)
 
-  function filterQuestions(gender) {
+  function filterQuestions(gender: string) {
     setQuestionGender(gender)
-    if (newQuestion != "") {
-      setNewQuestion("")
+    if (newQuestion != null) {
+      setNewQuestion(null)
     }
   }
 
   return (
     <>
       <main className="lg:flex bg-slate-200 md:bg-white">
-        <Filters
-          filterByGender={filterQuestions}
-          setNewQuestion={setNewQuestion}
-        />
+        <Filters filterByGender={filterQuestions} />
         <Questions
           newQuestion={newQuestion}
           setNewQuestion={setNewQuestion}

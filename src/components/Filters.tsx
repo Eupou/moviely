@@ -9,7 +9,11 @@ import {
 } from "@fortawesome/free-solid-svg-icons"
 import { useState } from "react"
 
-export default function Filters({ filterByGender }) {
+type FilterProps = {
+  filterByGender: (gender: string) => void
+}
+
+export default function Filters({ filterByGender }: FilterProps) {
   const [activeLi, setActiveLi] = useState(0)
   const movieGender = [
     { text: "Todos os gêneros", gender: "todos", icon: faDice },
@@ -19,7 +23,7 @@ export default function Filters({ filterByGender }) {
     { text: "Sci-fi", gender: "Sci-fi", icon: faFlask },
   ]
 
-  function handleClick(id, movieGender) {
+  function handleClick(id: number, movieGender: string) {
     setActiveLi(id)
     filterByGender(movieGender)
   }

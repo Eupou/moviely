@@ -7,10 +7,16 @@ const QuestionResult = dynamic(() => import("@/components/QuestionResult"), {
   ssr: false,
 })
 
-export default function Contect({ params }) {
+type ContentProps = {
+  params: {
+    questionId: string
+  }
+}
+
+export default function Content({ params }: ContentProps) {
   const query = decodeURIComponent(params.questionId)
 
-  function filterAndSortResults(query) {
+  function filterAndSortResults(query: string) {
     const queryWords = query.toLowerCase().split(" ")
     return questions
       .map((item) => {
@@ -36,7 +42,6 @@ export default function Contect({ params }) {
               key={id}
               path={`/question/${question.id}`}
               question={question.question}
-              query={query}
             />
           ))}
         </QuestionResultContainer>

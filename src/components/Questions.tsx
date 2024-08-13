@@ -5,25 +5,38 @@ import questions from "../questions.json"
 import { useState } from "react"
 const QuestionCard = dynamic(() => import("./QuestionCard"), { ssr: false })
 
+type QuestionProps = {
+  questionGender: string
+  setQuestionGender: (arg: string) => void
+  newQuestion: {
+    id: number
+    isFirstQuestion: boolean
+    gender: string
+    question: string
+    score: number
+  } | null
+  setNewQuestion: (arg: null) => void
+}
+
 export default function Questions({
   questionGender,
   setQuestionGender,
   newQuestion,
   setNewQuestion,
-}) {
+}: QuestionProps) {
   const [questionStats, setQuestionStats] = useState("all-questions")
 
-  function selectChange(e) {
+  function selectChange(e: React.ChangeEvent<HTMLSelectElement>) {
     setQuestionGender(e.target.value)
-    if (newQuestion != "") {
-      setNewQuestion("")
+    if (newQuestion != null) {
+      setNewQuestion(null)
     }
   }
 
-  function answerFilter(e) {
+  function answerFilter(e: React.ChangeEvent<HTMLSelectElement>) {
     setQuestionStats(e.target.value)
-    if (newQuestion != "") {
-      setNewQuestion("")
+    if (newQuestion != null) {
+      setNewQuestion(null)
     }
   }
 

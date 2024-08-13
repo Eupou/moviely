@@ -2,14 +2,21 @@
 import dynamic from "next/dynamic"
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false })
 import "react-quill/dist/quill.snow.css"
-import { twMerge } from "tailwind-merge"
+import { ClassNameValue, twMerge } from "tailwind-merge"
+
+type TextEditor = {
+  placeholderText?: string
+  editorText: string
+  handleTextChange: (arg0: string) => void
+  className?: ClassNameValue
+}
 
 export default function TextEditor({
   placeholderText,
   editorText,
   handleTextChange,
   className,
-}) {
+}: TextEditor) {
   const modules = {
     toolbar: [
       [{ header: [1, 2, 3, false] }],
@@ -19,9 +26,7 @@ export default function TextEditor({
     ],
   }
 
-  const formats = {
-    formats: ["header", "bold", "italic"],
-  }
+  const formats = ["header", "bold", "italic"]
 
   return (
     <ReactQuill

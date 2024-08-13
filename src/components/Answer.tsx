@@ -2,7 +2,12 @@ import { faUser } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import DOMPurify from "dompurify"
 
-export default function Answer({ questionHTML, name }) {
+type AnswerProps = {
+  questionHTML: string
+  name: string
+}
+
+export default function Answer({ questionHTML, name }: AnswerProps) {
   return (
     <div className="w-[90%] m-auto">
       <div className="flex items-center">

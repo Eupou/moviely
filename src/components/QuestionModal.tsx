@@ -4,9 +4,21 @@ import { faXmark } from "@fortawesome/free-solid-svg-icons"
 import Select from "./Select"
 import TextEditor from "./TextEditor"
 import useQuestionModal from "@/hooks/useQuestionModal"
-import { useEffect } from "react"
+import { SetStateAction, useEffect } from "react"
 
-export default function QuestionModal({ setNewQuestion }) {
+type NewQuestion = {
+  id: number
+  isFirstQuestion: boolean
+  gender: string
+  question: string
+  score: number
+}
+
+type QuestionModalProps = {
+  setNewQuestion?: React.Dispatch<SetStateAction<NewQuestion | null>>
+}
+
+export default function QuestionModal({ setNewQuestion }: QuestionModalProps) {
   const {
     ref,
     questionStats,
@@ -22,7 +34,9 @@ export default function QuestionModal({ setNewQuestion }) {
 
   useEffect(() => {
     if (newQuestion) {
-      setNewQuestion(newQuestion)
+      if (setNewQuestion) {
+        setNewQuestion(newQuestion)
+      }
     }
   }, [newQuestion, setNewQuestion])
 
